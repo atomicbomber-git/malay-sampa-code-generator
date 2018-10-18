@@ -113,77 +113,58 @@ def pecah(kata):
 ####--------------------------------------------------------------------------------------------- ^ koding suku2.py
 
 def cariSukuKata(kata):
-	return pecah(kata)
+    return pecah(kata)
 
 def konversiKV(fonem):
-	return "V" if fonem in vokal else "K"
+    return "V" if fonem in vokal else "K"
 
-def cekTipeSukuKata(suku_kata):								#pemisalan: suku_kata = "sa"
-	
-	sk_konversi = []
+def cekTipeSukuKata(suku_kata):
+    sk_konversi = []
 
-	for fonem in suku_kata: 								# ["s", "a"] 		# diftong?
-		sk_konversi.append(konversiKV(fonem))					# ["K", "V"]
+    for fonem in suku_kata:
+        sk_konversi.append(konversiKV(fonem))
 
-	sk_konversi = str.join("", sk_konversi)						# "KV"
+    sk_konversi = str.join("", sk_konversi)
 
-
-	daftar_tipe_kv = {
-		"V" : ["V1"],		
-		"VK" : ["V2", "K1"],		
-		"KV" : ["K2", "V3"],		
-		"KVK" : ["K3", "V4", "K4"],	
-		"KKV" : ["K5", "K6", "V5"],
+    daftar_tipe_kv = {
+        "V" : ["V1"],
+        "VK" : ["V2", "K1"],
+        "KV" : ["K2", "V3"],
+        "KVK" : ["K3", "V4", "K4"],
+        "KKV" : ["K5", "K6", "V5"],
         "KKVK" : ["K7", "K8", "V6", "K9"],
         "VKK" : ["V7", "K10","K11"],
         "KVKK" : ["K12", "V8","K13", "K14"],
         "KKVKK" : ["K15", "K16", "V9", "K17", "K18"],
         "KKKV" : ["K19", "K20","K21", "V10"],
         "KKKVK" : ["K22", "K23","K24", "V11", "K25"],
-        # "KVV" : ["K26", "V12", "V13"],		
-	}
+    }
 
-	nilai_kv = daftar_tipe_kv[sk_konversi];
+    nilai_kv = daftar_tipe_kv[sk_konversi]
 
-	nilai_fonem_kv = {};
-	i = 0
+    nilai_fonem_kv = {}
+    i = 0
 
-	for fonem in suku_kata: 								# ["s", "a"] 		# diftong?
-		nilai_fonem_kv[fonem] = nilai_kv[i]			# urutan daftar_tipe_kv harus sesuai
-		i = i + 1
+    for fonem in suku_kata:
+        nilai_fonem_kv[fonem] = nilai_kv[i]
+        i = i + 1
 
-	return nilai_fonem_kv;
-
-
+    return nilai_fonem_kv
 
 def hitungDurasi(kalimat):
-	teks = "Salam sepok,       lok kite.! &(&(*&(&(&( 12"
+    teks_hasil_bersih2 = "salam sepok lok kite duak belas"
+    teks_hasil_bersih2 = kalimat
 
-	 # diproses dulu
-		# 1. huruf besar => huruf kecil
-		# 2. hilangkan tanda baca dan huruf atau (angka ?)
-		# 3. spasi yg berlebihan
+    daftar_kata = teks_hasil_bersih2.split(" ")
 
-	teks_hasil_bersih2 = "salam sepok lok kite duak belas"
-	teks_hasil_bersih2 = kalimat
-
-
-	#tokenisasi
-	daftar_kata = teks_hasil_bersih2.split(" ");				#daftar_kata = ["salam", "sepok", "lok", "kite", 'duak', "belas"]
-
-	for kata in daftar_kata:
-		daftar_suku_kata = cariSukuKata(kata) 					#["sa", "lam"] 
-		for suku_kata in daftar_suku_kata:
-			daftar_tipe_sk = cekTipeSukuKata(suku_kata) 				# ["s" => K2", "a"=> V3"]
-			print(suku_kata, daftar_tipe_sk)
-			print()
-
-
-
-
+    for kata in daftar_kata:
+        daftar_suku_kata = cariSukuKata(kata) 
+        for suku_kata in daftar_suku_kata:
+            daftar_tipe_sk = cekTipeSukuKata(suku_kata)
+            print(suku_kata, daftar_tipe_sk)
+            print()
 
 if __name__=='__main__':
     if len(sys.argv)>1:
         kalimat = sys.argv[1]
         print(hitungDurasi(kalimat))
-        # print(pecah(kalimat))
