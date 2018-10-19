@@ -101,6 +101,38 @@ malay_phoneme_types = {
     "KKKVK" : ["K22", "K23", "K24", "V11", "K25"],
 }
 
+sampa_codes = {
+    'p': 'p',
+    'b': 'b',
+    't': 't',
+    'd': 'd',
+    'k': 'k',
+    'g': 'g',
+    'c': 'tS',
+    'j': 'dZ',
+    'f': 'f',
+    's': 's',
+    'z': 'z',
+    'h': 'h',
+    'm': 'm',
+    'n': 'n',
+    'ng': 'N',
+    'r': 'r',
+    'l': 'l',
+    'w': 'w',
+    'y': 'j',
+    'ny': 'nY',
+    'a': 'V',
+    'e\'': '@',
+    'e': 'e',
+    'i': 'I',
+    'o': 'Q',
+    'u': 'U',
+    'ai': 'aI',
+    'oi': 'OI',
+    'au': 'aU'
+}
+
 def syllable_to_phonemes(syllable):
     phonemes = []
 

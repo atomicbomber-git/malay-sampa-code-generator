@@ -1,7 +1,7 @@
 import sys
 # Project-local imports
 from suku import pecah
-from phoneme import malay_phoneme_types, syllable_to_phonemes, get_phoneme_type, duration_constants, durations
+from phoneme import malay_phoneme_types, syllable_to_phonemes, get_phoneme_type, duration_constants, durations, sampa_codes
 
 ALLOWED_CHARACTERS = "abcdefghijklmnopqrstuvwxyz 's"
 
@@ -61,5 +61,15 @@ for word in sentence:
         for phoneme in syllable:
             print(phoneme)
 
+print("")
 
+# Convert to SAMPA codes
+sampa = [[[ sampa_codes[phoneme['phoneme']] + ":" + str(phoneme["D0"]) + "; " for phoneme in syllable] for syllable in word] for word in sentence]
 
+text = ""
+for word in sampa:
+    for syllable in word:
+        for phoneme in syllable:
+            text += phoneme
+
+print(text)
