@@ -21,7 +21,10 @@ def convert_phonemes(phonemes):
         result.append({
             'phoneme': phoneme,
             'type': phoneme_type[i],
-            'duration': calculate_duration(constant, d_i, d_min)
+            'K': constant,
+            'DMin': d_min,
+            'Di': d_i,
+            'D0': calculate_duration(constant, d_i, d_min)
         })
 
     return result
