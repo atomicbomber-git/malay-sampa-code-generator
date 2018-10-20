@@ -1,6 +1,6 @@
 import sys
 # Project-local imports
-from suku import pecah
+from syllable import split_into_syllabes
 from phoneme import malay_phoneme_types, syllable_to_phonemes, get_phoneme_type, duration_constants, durations, sampa_codes
 
 ALLOWED_CHARACTERS = "abcdefghijklmnopqrstuvwxyz 's"
@@ -48,7 +48,7 @@ sentence = "".join(sentence)
 sentence = sentence.split(" ")
 
 # Split each word in sentence into syllables
-sentence = [pecah(word) for word in sentence]
+sentence = [split_into_syllabes(word) for word in sentence]
 
 # Break each syllable into its constituent phonemes
 sentence = [[syllable_to_phonemes(syllable) for syllable in syllables] for syllables in sentence]
