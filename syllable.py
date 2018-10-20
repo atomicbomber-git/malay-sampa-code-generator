@@ -51,9 +51,12 @@ REVERSE_COMPOSITES = {
     '(': 'e\''
 }
 
+NO_DIPHTONGS = ["main", "lain"]
+
 def preprocess(word):
-    for diphtong, code in DIPTHTONGS.items():
-        word = word.replace(diphtong, code)
+    if word not in NO_DIPHTONGS:
+        for diphtong, code in DIPTHTONGS.items():
+            word = word.replace(diphtong, code)
 
     for consonant, code in COMPOSITES.items():
         word = word.replace(consonant, code)
