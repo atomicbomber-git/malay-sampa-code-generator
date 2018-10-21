@@ -84,19 +84,17 @@ def postprocess(syllables):
 
 def split_by_consecutive_vowels(part):
     result = []
-    temp = ""
+    start_pos = 0
     
-    for i, char in enumerate(part):
+    for i, _ in enumerate(part):
 
-        temp += char
-
-        if (i + 1 >= len(part)):
-            result.append(temp)
+        if i + 1 >= len(part):
+            result.append(part[start_pos:len(part)])
             break
         
-        if (part[i] in VOWELS and part[i + 1] in VOWELS):
-            result.append(temp)
-            temp = ""
+        if part[i] in VOWELS and part[i + 1] in VOWELS:
+            result.append(part[start_pos:i+1])
+            start_pos = i + 1
 
     return result
 
@@ -107,16 +105,15 @@ def split_by_consecutive_vowels(part):
 
 def split_by_vowel_between_consonants(part):
     result = []
-    
     start_pos = 0
     
     for i, _ in enumerate(part):
 
-        if (i + 2 >= len(part)):
+        if i + 2 >= len(part):
             result.append(part[start_pos:len(part)])
             break
         
-        if (part[i] in VOWELS and part[i + 1] in CONSONANTS and part[i + 2] in VOWELS):
+        if part[i] in VOWELS and part[i + 1] in CONSONANTS and part[i + 2] in VOWELS:
             result.append(part[start_pos:i + 1])
             start_pos = i + 1
 
@@ -129,19 +126,17 @@ def split_by_vowel_between_consonants(part):
 
 def split_by_consecutive_consonants(part):
     result = []
-    temp = ""
+    start_pos = 0
     
-    for i, char in enumerate(part):
+    for i, _ in enumerate(part):
 
-        temp += char
-
-        if (i + 1 >= len(part)):
-            result.append(temp)
+        if i + 1 >= len(part):
+            result.append(part[start_pos:len(part)])
             break
         
-        if (part[i] in CONSONANTS and part[i + 1] in CONSONANTS):
-            result.append(temp)
-            temp = ""
+        if part[i] in CONSONANTS and part[i + 1] in CONSONANTS:
+            result.append(part[start_pos:i + 1])
+            start_pos = i + 1
 
     return result
 
