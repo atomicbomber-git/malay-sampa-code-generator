@@ -89,7 +89,7 @@ def split_by_consecutive_vowels(part):
     for i, _ in enumerate(part):
 
         if i + 1 >= len(part):
-            result.append(part[start_pos:len(part)])
+            result.append(part[start_pos:])
             break
         
         if part[i] in VOWELS and part[i + 1] in VOWELS:
@@ -110,7 +110,7 @@ def split_by_vowel_between_consonants(part):
     for i, _ in enumerate(part):
 
         if i + 2 >= len(part):
-            result.append(part[start_pos:len(part)])
+            result.append(part[start_pos:])
             break
         
         if part[i] in VOWELS and part[i + 1] in CONSONANTS and part[i + 2] in VOWELS:
@@ -131,7 +131,7 @@ def split_by_consecutive_consonants(part):
     for i, _ in enumerate(part):
 
         if i + 1 >= len(part):
-            result.append(part[start_pos:len(part)])
+            result.append(part[start_pos:])
             break
         
         if part[i] in CONSONANTS and part[i + 1] in CONSONANTS:
