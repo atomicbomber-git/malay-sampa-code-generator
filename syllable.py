@@ -124,7 +124,7 @@ def split_by_vowel_between_consonants(part):
 
 #
 # Two consecutive consonants breaks a word
-# Ex: bu-ah, ta-at, sa-at
+# Ex: lang-geng, peng-gal
 #
 
 def split_by_consecutive_consonants(part):
