@@ -66,10 +66,7 @@ print("")
 # Convert to SAMPA codes
 sampa = [[[ sampa_codes[phoneme['phoneme']] + ":" + str(phoneme["D0"]) + "; " for phoneme in syllable] for syllable in word] for word in sentence]
 
-text = ""
 for word in sampa:
     for syllable in word:
         for phoneme in syllable:
-            text += phoneme
-
-print(text)
+            print phoneme
